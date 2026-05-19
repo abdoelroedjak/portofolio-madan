@@ -68,6 +68,54 @@
     @apply mix-blend-overlay;
   }
 
+  .mesh-gradient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(at 0% 0%, rgba(15, 19, 33, 1) 0px, transparent 100%),
+      radial-gradient(at 100% 0%, rgba(0, 46, 106, 0.4) 0px, transparent 100%),
+      radial-gradient(at 0% 100%, rgba(0, 53, 74, 0.4) 0px, transparent 100%),
+      radial-gradient(at 100% 100%, rgba(15, 19, 33, 1) 0px, transparent 100%);
+    z-index: -3;
+    pointer-events: none;
+    animation: meshMove 20s infinite alternate ease-in-out;
+  }
+
+  @keyframes meshMove {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 10% 10%; }
+  }
+
+  .vignette {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 0%, rgba(10, 13, 28, 0.4) 100%);
+    pointer-events: none;
+    z-index: 50;
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    height: 80vh;
+    background: radial-gradient(circle at center, rgba(173, 198, 255, 0.05) 0%, transparent 70%);
+    filter: blur(120px);
+    pointer-events: none;
+    z-index: 0;
+    animation: glowPulse 10s infinite alternate ease-in-out;
+  }
+
+  @keyframes glowPulse {
+    0% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); }
+  }
+
   .grid-background {
     position: fixed;
     top: 0;
@@ -83,21 +131,6 @@
     pointer-events: none;
     transform: perspective(1000px) rotateX(20deg) scale(1.2);
     transform-origin: top;
-  }
-
-  .mesh-gradient {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-      radial-gradient(at 0% 0%, rgba(15, 19, 33, 1) 0px, transparent 100%),
-      radial-gradient(at 100% 0%, rgba(0, 46, 106, 0.4) 0px, transparent 100%),
-      radial-gradient(at 0% 100%, rgba(0, 53, 74, 0.4) 0px, transparent 100%),
-      radial-gradient(at 100% 100%, rgba(15, 19, 33, 1) 0px, transparent 100%);
-    z-index: -3;
-    pointer-events: none;
   }
 
   .liquid-shape {

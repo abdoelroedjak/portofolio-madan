@@ -14,41 +14,49 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-surface/40 backdrop-blur-xl border-b border-white/10">
-      <nav className="max-w-[1280px] mx-auto px-6 md:px-20 flex justify-between items-center h-20">
+    <header className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline/10">
+      <nav className="max-w-[1400px] mx-auto px-6 md:px-12 flex justify-between items-center h-24">
         <motion.span 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="font-display text-xl md:text-2xl font-black tracking-tighter text-on-surface"
+          whileHover={{ letterSpacing: "0.3em" }}
+          transition={{ duration: 0.5 }}
+          className="font-display text-2xl font-black tracking-[0.2em] text-on-surface cursor-pointer"
         >
           MADAN
         </motion.span>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex gap-8 items-center">
+        <div className="hidden md:flex gap-12 items-center">
           {navLinks.map((link, i) => (
             <motion.a
               key={link.name}
               href={link.href}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              className="font-body text-sm text-on-surface-variant hover:text-on-surface transition-colors font-medium relative group"
+              whileHover={{ y: -2, color: "var(--color-primary)" }}
+              transition={{ delay: i * 0.05 }}
+              className="font-body text-[11px] uppercase tracking-[0.3em] text-on-surface-variant transition-all font-semibold relative group"
             >
               {link.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-500" />
             </motion.a>
           ))}
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-6">
           <motion.a
             href="#contact"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            whileHover={{ scale: 1.05 }}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            whileHover={{ 
+              scale: 1.05, 
+              backgroundColor: "white", 
+              color: "#002e6a",
+              boxShadow: "0 0 20px rgba(173,198,255,0.2)" 
+            }}
             whileTap={{ scale: 0.95 }}
-            className="px-6 py-2.5 bg-primary text-on-primary font-bold rounded-full transition-all text-xs tracking-widest uppercase"
+            className="hidden md:block px-8 py-3 bg-primary text-on-primary font-bold text-[10px] tracking-[0.3em] uppercase transition-all duration-300 rounded-full"
           >
             Let's Talk
           </motion.a>

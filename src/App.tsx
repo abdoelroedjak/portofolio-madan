@@ -12,7 +12,6 @@ import Portfolio from "./components/Portfolio";
 import Certificates from "./components/Certificates";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-
 import AnimatedBackground from "./components/AnimatedBackground";
 
 export default function App() {
